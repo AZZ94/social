@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(65, 65, 65);
+}
+
+.postList {
+    max-width: 600px;
+    margin: auto;
+}
+
+.btn {
+    width: 500px;
+}
