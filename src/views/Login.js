@@ -35,10 +35,12 @@ const Login = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post("https://akademia108.pl/api/social-app/user/login", {
+        let user = {
             username: formData.username,
             password: formData.password
-        })
+        };
+
+        axios.post("https://akademia108.pl/api/social-app/user/login", JSON.stringify(user))
             .then((res) => {
                 // console.log(res.data);
 
@@ -50,6 +52,7 @@ const Login = (props) => {
                     setLoginMessage('Incorrect login/password')
                 } else {
                     setLoginMessage("");
+      
                     // wstawianie uzytkownika do stanu po zalogowaniu
                     props.setUser(res.data);
                     localStorage.setItem('user', JSON.stringify(res.data));

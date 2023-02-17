@@ -6,7 +6,7 @@
     background-color: rgba(0, 0, 0, 0.356);
 }
 
-.post > * {
+.post>* {
     padding: 5px;
 }
 
@@ -47,4 +47,37 @@
 
 .post .postData .postMeta .author:hover {
     text-decoration: underline;
+}
+
+.deleteConfirmation {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    border: 2px solid rgba(255, 255, 255, 0.26);
+    color: white;
+}
+
+.deleteConfirmation .yes {
+    background-color: green;
+    border: 2px solid rgba(0, 0, 0, 0.589);
+}
+
+.deleteConfirmation .yes:hover {
+    color: rgba(0, 0, 0, 0.774);
+}
+
+.deleteConfirmation .no {
+    background-color: red;
+    border: 2px solid rgba(0, 0, 0, 0.589);
+}
+
+.deleteConfirmation .no:hover {
+    color: rgba(0, 0, 0, 0.774);
+}
+
+.dislike {
+    text-decoration: rgb(194, 55, 0) 3px line-through wavy;
+    
 }

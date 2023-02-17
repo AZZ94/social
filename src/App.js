@@ -13,11 +13,12 @@ function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
   axios.defaults.headers.common['Authorization'] = "Bearer" + (user ? user.jwt_token : "")
+  axios.defaults.headers.post["Content-Type"] = "application/json"
 
   return (
     <div className="App">
      <img src={Logo} className="App-logo" alt="logo" />
-      < AppNav setUser={setUser} />
+      < AppNav user={user} setUser={setUser} />
       < AppRoutes user={user} setUser={setUser}/>
       
     </div>

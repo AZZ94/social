@@ -6,8 +6,8 @@ import SignUp from "../views/SignUp";
 const AppRoutes = (props) => {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login setUser={props.setUser} />} />
+            <Route path="/" element={<Home user={props.user} />} />
+            <Route path="/login" element={<Login setUser={props.setUser} user={props.user} />} />
             <Route path="/signup" element={<SignUp />} />
         </Routes>
     );
