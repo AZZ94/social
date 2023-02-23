@@ -3,6 +3,8 @@ import Post from "../components/Post";
 import axios from "axios";
 import './Home.css';
 import AddPost from "../components/AddPost";
+import AppNav from "../components/AppNav";
+// import FollowRecommendations from "../components/FollowRecommendations";
 
 const Home = (props) => {
 
@@ -70,6 +72,7 @@ const Home = (props) => {
                     // setposts - przekazujemy info do odwiezania strony po usunieciu
                 })}
                 <button className="btn" onClick={getNextPosts}>Show more</button>
+                {/* {props.user && <FollowRecommendations user={props.user} />} */}
             </div>
         </div>
     );

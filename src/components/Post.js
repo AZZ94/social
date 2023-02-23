@@ -72,9 +72,9 @@ const Post = (props) => {
 
 
                     {doesUserLike ? (
-                        <button className="btn dislike" onClick={likePost(props.post.id, doesUserLike)}>&#10084;</button>
+                        <button className="btn dislike" onClick={() => likePost(props.post.id, doesUserLike)}>&#10084;</button>
                         ) : (
-                    <button className="btn" onClick={likePost(props.post.id, doesUserLike)}>&#10084;</button>)}
+                    <button className="btn" onClick={() => likePost(props.post.id, doesUserLike)}>&#10084;</button>)}
                     
 
                     {likesCount}

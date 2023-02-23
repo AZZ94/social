@@ -40,7 +40,10 @@ const Login = (props) => {
             password: formData.password
         };
 
-        axios.post("https://akademia108.pl/api/social-app/user/login", JSON.stringify(user))
+        axios.post("https://akademia108.pl/api/social-app/user/login", {
+            username: formData.username,
+            password: formData.password
+        })
             .then((res) => {
                 // console.log(res.data);
 

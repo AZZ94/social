@@ -1,0 +1,24 @@
+.signUp form {
+    border: 2px solid rgba(255, 255, 255, 0.26);
+    max-width: 600px;
+    margin: auto;
+    padding: 15px;
+}
+
+.signUp form input {
+    display: block;
+    width: 97%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.signUp .btn {
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.signUp .btn:disabled {
+    background-color: rgb(78, 78, 78);
+    color: grey;
+    cursor: not-allowed;
+}
