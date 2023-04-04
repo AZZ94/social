@@ -70,6 +70,8 @@ const Post = (props) => {
                     {props.user?.username === props.post.user.username && <button className="btn" onClick={() => setDeleteModalVisible(true)}>Delete</button>}
                     {/* on click - pop up widoczny */}
 
+                    {props.user && props.user.username !== props.post.user.username && <button className="btn">Unfollow</button>}
+
 
                     {doesUserLike ? (
                         <button className="btn dislike" onClick={() => likePost(props.post.id, doesUserLike)}>&#10084;</button>

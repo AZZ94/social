@@ -3,8 +3,7 @@ import Post from "../components/Post";
 import axios from "axios";
 import './Home.css';
 import AddPost from "../components/AddPost";
-import AppNav from "../components/AppNav";
-// import FollowRecommendations from "../components/FollowRecommendations";
+import FollowRecommendations from "../components/FollowRecommendations";
 
 const Home = (props) => {
 
@@ -63,7 +62,7 @@ const Home = (props) => {
 
     return (
         <div className="home">
-
+                {props.user && <FollowRecommendations user={props.user} posts={posts} getLatestPosts={getLatestPosts} />}
             <div className="postList">
                 {props.user && <AddPost getPrevPosts={getPrevPosts} />}
                 {posts.map(post => {
@@ -71,8 +70,9 @@ const Home = (props) => {
                     // przekazujemy informacje o tym kto jest obecnie zalogowany - do usuwania postow - odpowiedni przycisk
                     // setposts - przekazujemy info do odwiezania strony po usunieciu
                 })}
-                <button className="btn" onClick={getNextPosts}>Show more</button>
-                {/* {props.user && <FollowRecommendations user={props.user} />} */}
+
+                <button className="btn" onClick={getNextPosts}>Show more posts</button>
+
             </div>
         </div>
     );

@@ -1,40 +1,58 @@
-// - Stwórz nowy komponent FollowRecommendations.js .
-
 import axios from "axios";
-import { useState } from "react";
-
-// - Stwórz stan recommendations, który będzie uzupełniała funkcja getRecommendations.
-
-// - W return stwórz całą strukturę listy osób do followowania z przyciskiem follow.
-
-// - Dla przycisku follow tworzymy funkcje follow(), która będzie wysyłała do API id osoby zaobserwowanej, a następnie aktualizowała posty na stronie.
-
-// "https://akademia108.pl/api/social-app/follows/follow"
-
-
-// - Przycisk unfollow robimy w Post.js .
-
-
-// "https://akademia108.pl/api/social-app/follows/disfollow"
+import { useEffect, useState } from "react";
+import './FollowRecommendations.css';
 
 
 const FollowRecommendations = (props) => {
+    const [recommendations, getRecommendations] = useState([]);
+    // tablica
 
-
-    const [recommendations, getRecommendations] = useState();
-
-    const followRec = () => {
+    const followRecs = () => {
         axios
-        .post('https://akademia108.pl/api/social-app/follows/follow')
-        .then((res) => {
-            getRecommendations(res.data);
-            // console.log(res.data);
-        });
+            .post("https://akademia108.pl/api/social-app/follows/recommendations")
+            .then((res) => {
+                getRecommendations(res.data);
+                // pobrane rekomendacje do stanu
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
+    // wywolanie funkcji po zaladowaniu elementu i  za kazdym razem kiedy lsita postow sie zmieni
+    useEffect(() => {
+        followRecs()
+    }, [props.posts])
+
+    console.log(recommendations);
+
+    const followUser = (id) => {
+        axios.post("https://akademia108.pl/api/social-app/follows/follow", {
+            leader_id: id,
+            // obiekt konfiguracyjny?
+        })
+            .then(() => {
+                props.getLatestPosts();
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
     return (
-        <div className="recommendList">
-            <button className="btn"></button>
+        <div className="recommendationList">
+            {recommendations.map(recommendation => {
+                return (
+                    <div className="followRecommendation"
+                        key={recommendation.id}>
+                        <h4>{recommendation.username}</h4>
+                        <img src={recommendation.avatar_url} alt={"img"} />
+                        <button className="btn" onClick={() => followUser(recommendation.id)}>follow</button>
+                    </div>
+                )
+                // console.log(recommendation);
+            })}
+            {/* <button className="btn"></button> */}
         </div>
     );
 };

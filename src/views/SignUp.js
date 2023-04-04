@@ -94,14 +94,10 @@ const SignUp = (props) => {
             validationErrors.confirmPassword = false;
         };
 
-
-
         // jezeli przynajmniej jedno z pol bedzie mialo wartosc true - czyli bedzie blad
         return (!validationErrors.username && !validationErrors.email && !validationErrors.password && !validationErrors.confirmPassword)
         // zwracamy odwrotnosc prawdy czyli falsz
     };
-
-
 
 
     const handleInputChange = (e) => {
@@ -140,6 +136,12 @@ const SignUp = (props) => {
                     // signedup - z API, wartosc logiczna
                     setSignUpMessage("Account created")
                     setSignUpDone(true)
+                    setErrors({
+                        username: '',
+                        email: '',
+                        password: '',
+                        confirmPassword: '',
+                    })
                 } else {
                     if (resData.message.username) {
                         // tablica jedno elemeentowa?
@@ -147,7 +149,7 @@ const SignUp = (props) => {
                     } else if (resData.message.email) {
                         setSignUpMessage(resData.message.email[0])
                     }
-
+                    console.log(res.data);
                 }
 
 
