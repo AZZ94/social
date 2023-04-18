@@ -45,8 +45,8 @@ const FollowRecommendations = (props) => {
                 return (
                     <div className="followRecommendation"
                         key={recommendation.id}>
+                        <img src={recommendation.avatar_url} alt={"img"} /> 
                         <h4>{recommendation.username}</h4>
-                        <img src={recommendation.avatar_url} alt={"img"} />
                         <button className="btn" onClick={() => followUser(recommendation.id)}>follow</button>
                     </div>
                 )

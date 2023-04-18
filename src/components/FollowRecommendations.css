@@ -1,5 +1,25 @@
 .recommendationList {
+    display: flex;
+    border: 2px solid rgba(0, 0, 0, 0.637);
+    margin: auto;
+    padding: 5px;
+    min-width: 600px;
+    max-width: 600px;
+    background-color: rgba(190, 190, 190, 0.356);
+}
 
+.followRecommendation {
+    width: 33.33%;
+    padding: 10px;
+}
 
-    height: 500px;
+.followRecommendation img {
+    height: 50px;
+    width: 50px;
+    border-radius: 25%;
+    box-shadow: 5px 5px rgb(221, 174, 19);
+}
+
+.followRecommendation h4 {
+    margin: 5px;
 }

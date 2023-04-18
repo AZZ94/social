@@ -79,5 +79,8 @@
 
 .dislike {
     text-decoration: rgb(194, 55, 0) 3px line-through wavy;
-    
+}
+
+.post .likes button {
+    height: 45px;
 }
